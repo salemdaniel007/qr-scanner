@@ -6,6 +6,7 @@ const state = {
   loading: false,
   qrResult: '',
   qrHistory: [],
+  count: 0,
 };
 
 const getters = {
@@ -13,16 +14,21 @@ const getters = {
   loading: (state) => state.loading,
   qrResult: (state) => state.qrResult,
   qrHistory: (state) => state.qrHistory,
+  count: (state) => state.count,
 };
 
 const actions = {
   getQrCode({ commit }) {
     state.loading = true;
+    state.count = parseInt(state.count, 10) + parseInt(1, 10);
     const { url } = state;
     axios.get(`https://qrtag.net/api/qr_transparent.png?url=${url}`)
       .then((response) => {
         console.log(response);
-        commit('setQrCode', response);
+        if (state.count <= 10) {
+          state.qrHistory.push(response.config.url);
+        }
+        commit('setQrCode', response.config.url);
       })
       .catch((error) => {
         console.log(error);
