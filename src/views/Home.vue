@@ -3,13 +3,27 @@
     <div class="text">
       <p>Enter URL here</p>
       <div><input type="text" placeholder="Enter a valid url" v-model="url" /></div>
+      <h5 style="color:#f15c12;" class="tries" v-show="count > 10"
+        >Err.. boss man, calm down first, be looking your trials. Refresh to start again.
+        </h5
+      >
+      <h4 v-if="count <= 10" class="tries">
+        You have <span>{{ 10 - count }}</span> trials left
+      </h4>
       <div>
-        <button @click="getQrCode" class="inputbtn"><p>Generate</p></button>
+        <button :disabled="count > 10" @click="getQrCode" class="inputbtn"><p>Generate</p></button>
       </div>
+      <h4 class="tries"><span>PS:</span> You only have <span>10</span> tries</h4>
     </div>
     <div class="qr-code-container">
       <div class="qr-card">
-        <img src="https://qrtag.net/api/qr_transparent.svg?url=https://www.qrtag.net" alt="qrtag" />
+        <img
+          :src="
+            qrImage === ''
+              ? 'https://www.qrtag.net/api/qr_transparent.svg?url=https://www.qrtag.net'
+              : qrImage
+          "
+        />
       </div>
       <div class="btn-flex">
         <button class="downloadBtn" style="background-color: #0d0c22;">
@@ -34,6 +48,12 @@ export default {
     ...mapActions(['getQrCode']),
   },
   computed: {
+    count() {
+      return this.$store.getters.count;
+    },
+    qrImage() {
+      return this.$store.getters.qrResult;
+    },
     url: {
       get() {
         return this.$store.getters.url;
@@ -77,7 +97,8 @@ export default {
   margin: 10px auto;
   width: 80%;
   height: 35vh;
-  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.9);
+  transition: 0.3s;
 }
 
 .qr-card img {
@@ -101,8 +122,9 @@ input[type="text" i]:focus {
 }
 
 ::placeholder {
-  color: #0f1a7a;
+  color: #484950;
   opacity: 0.7;
+  font-style: italic;
 }
 
 .text p {
@@ -111,6 +133,22 @@ input[type="text" i]:focus {
   -o-transition: all 0.2s ease-in;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+h4 span {
+  color: #f15c12;
+}
+
+h5 {
+  font-size: 13px;
+}
+
+h5 span {
+  color: #f15c12;
 }
 
 .text p:hover {
