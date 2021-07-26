@@ -1,6 +1,6 @@
 <template>
   <div class="history">
-    <h1>BEHOLD... the works of <span>thy hands</span></h1>
+    <div><h1>BEHOLD... the works of <span>thy hands</span></h1></div>
     <div class="history-img-container" >
       <div v-for="url in historyUrl" :key="url">
         <img :src="url" alt="" />
@@ -23,7 +23,7 @@ export default {
 .history {
   display: flex;
   width: 810px;
-  height: 65vh;
+  height: 75vh;
   flex-direction: column;
   align-items: center;
 }
@@ -39,6 +39,7 @@ h1 {
 .history-img-container {
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
 }
 
 .history-img-container div {
@@ -48,8 +49,8 @@ h1 {
 .history-img-container img {
   background-color: white;
   border-radius: 10px;
-  width: 130px;
-  height: 130px;
+  width: 110px;
+  height: 110px;
   margin: 10px auto;
   padding: 10px;
   box-shadow: 0 4px 8px 0 rgba(24, 23, 23, 0.2);
