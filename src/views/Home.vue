@@ -2,16 +2,23 @@
   <div class="flex-container">
     <div class="text">
       <p>Enter URL here</p>
-      <div><input type="text" placeholder="Enter a valid url" v-model="url" /></div>
-      <h5 style="color:#f15c12;" class="tries" v-show="count > 10"
-        >Err.. boss man, calm down first, be looking your trials. Refresh to start again.
-        </h5
-      >
+      <div>
+        <input @change="getQrCode" type="text" placeholder="Enter a valid url" v-model="url" />
+      </div>
+      <h5 style="color:#f15c12;" class="tries" v-show="count > 10">
+        Err.. boss man, calm down first<span style="font-size: 1.5rem;">💆🏿‍♂️</span>, you don
+        overdo, refresh to try again.
+      </h5>
+      <h5 style="color:#f15c12;" class="tries" v-show="valid">
+        Oga your url no correct <span style="font-size: 1.5rem;">🤷🏿‍♂️</span>, check am abeg
+      </h5>
       <h4 v-if="count <= 10" class="tries">
-        You have <span>{{ 10 - count }}</span> trials left
+        You have <span>{{ 10 - count }}</span> tries left
       </h4>
       <div>
-        <button :disabled="count > 10" @click="getQrCode" class="inputbtn"><p>Generate</p></button>
+        <button :disabled="count > 10" @click="getQrCode" class="inputbtn">
+          <p>Generate</p>
+        </button>
       </div>
       <h4 class="tries"><span>PS:</span> You only have <span>10</span> tries</h4>
     </div>
@@ -26,14 +33,15 @@
         />
       </div>
       <div class="btn-flex">
-        <button class="downloadBtn" style="background-color: #0d0c22;">
+        <button @click="downloadQrCodeSVG" class="downloadBtn" style="background-color: #0d0c22;">
           <i class="fa fa-download fa-1x" aria-hidden="true"></i> SVG
         </button>
-        <button class="downloadBtn">
+        <button @click="downloadQrCodePNG" class="downloadBtn">
           <i class="fa fa-download fa-1x" aria-hidden="true"></i> PNG
         </button>
       </div>
     </div>
+    <div class="remark">Made with ❤️ by Salem</div>
   </div>
 </template>
 
@@ -45,9 +53,17 @@ export default {
   name: 'Home',
   components: {},
   methods: {
-    ...mapActions(['getQrCode']),
+    ...mapActions([
+      'getQrCode',
+      'downloadQrCodeSVG',
+      'downloadQrCodePNG',
+    ]),
+    download() {},
   },
   computed: {
+    valid() {
+      return this.$store.getters.valid;
+    },
     count() {
       return this.$store.getters.count;
     },
@@ -86,6 +102,11 @@ export default {
   padding: 2px 16px;
   width: 30%;
   height: 70vh;
+  margin: auto;
+}
+
+.remark {
+  display: none;
 }
 
 .qr-card {
@@ -202,5 +223,58 @@ h5 span {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .flex-container {
+      flex-direction: column;
+      width: 320px;
+    }
+    .text {
+      align-items: center;
+      font-size: 1rem;
+    }
+
+    input[type="text" i] {
+      padding: 10px;
+      width: 230px;
+      margin-top: 12px;
+    }
+    h4 {
+      font-size: 20px;
+      margin: 12px;
+    }
+    .qr-code-container {
+      width: 70%;
+      margin-top: 0px;
+      position: inherit;
+    }
+
+    .btn-flex {
+      flex-direction: row;
+      position: inherit;
+      margin-bottom: 15px;
+    }
+
+    .qr-card {
+      height: 31vh;
+      top: 0%;
+      position: inherit;
+      width: 90%;
+      margin: 18px auto;
+    }
+
+    .qr-card img {
+      height: 31vh;
+    }
+
+    .remark {
+      display: inherit;
+      margin: 10px;
+    }
+
 }
 </style>
