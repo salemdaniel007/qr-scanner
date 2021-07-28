@@ -126,7 +126,7 @@ export default {
   background-color: white;
   width: 100%;
   height: 35vh;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 input[type="text" i] {
@@ -226,7 +226,7 @@ h5 span {
 }
 
 @media only screen
-  and (min-device-width: 320px)
+  and (min-device-width: 280px)
   and (max-device-width: 568px)
   and (-webkit-min-device-pixel-ratio: 2) {
     .flex-container {
@@ -274,6 +274,10 @@ h5 span {
     .remark {
       display: inherit;
       margin: 10px;
+    }
+
+    h4 span {
+      color: #e4dfe0;
     }
 
 }
