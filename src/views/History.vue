@@ -60,4 +60,13 @@ h1 {
 .history-img-container img:hover {
   box-shadow: 0 0 11px rgba(33, 33, 33, 0.6);
 }
+
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    h1 {
+      font-size: 20px;
+    }
+  }
 </style>

@@ -41,6 +41,7 @@
         </button>
       </div>
     </div>
+    <div class="remark">Made with ❤️ by Salem</div>
   </div>
 </template>
 
@@ -102,6 +103,10 @@ export default {
   width: 30%;
   height: 70vh;
   margin: auto;
+}
+
+.remark {
+  display: none;
 }
 
 .qr-card {
@@ -218,5 +223,58 @@ h5 span {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .flex-container {
+      flex-direction: column;
+      width: 320px;
+    }
+    .text {
+      align-items: center;
+      font-size: 1rem;
+    }
+
+    input[type="text" i] {
+      padding: 10px;
+      width: 230px;
+      margin-top: 12px;
+    }
+    h4 {
+      font-size: 20px;
+      margin: 12px;
+    }
+    .qr-code-container {
+      width: 70%;
+      margin-top: 0px;
+      position: inherit;
+    }
+
+    .btn-flex {
+      flex-direction: row;
+      position: inherit;
+      margin-bottom: 15px;
+    }
+
+    .qr-card {
+      height: 31vh;
+      top: 0%;
+      position: inherit;
+      width: 90%;
+      margin: 18px auto;
+    }
+
+    .qr-card img {
+      height: 31vh;
+    }
+
+    .remark {
+      display: inherit;
+      margin: 10px;
+    }
+
 }
 </style>

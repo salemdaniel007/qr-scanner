@@ -257,4 +257,47 @@ body {
     display: none;
   }
 }
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .container {
+      align-items: normal;
+      position: inherit;
+      width: 100%;
+      box-shadow: none;
+      height: 80vh;
+      padding: 60px;
+      background-color: #cdd8e4;
+      background-image: linear-gradient(315deg, #9fbfe0 0%, #d7deec 74%);
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    body {
+      background-color: #cdd8e4;
+      background-image: linear-gradient(315deg, #9fbfe0 0%, #d7deec 74%);
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    #MiniLeftNav a span {
+      font-size: 10px;
+      margin-bottom: 26px;
+    }
+
+   #MiniLeftNav {
+      height: 30px;
+    }
+
+    #MiniLeftNav a:hover span {
+      padding: 0px;
+      margin: 0px;
+      bottom: -4px;
+    }
+
+    #MiniLeftNav a span {
+      color: #0a0a0a;
+    }
+}
 </style>
