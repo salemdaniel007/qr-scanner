@@ -258,7 +258,7 @@ body {
   }
 }
 @media only screen
-  and (min-device-width: 320px)
+  and (min-device-width: 280px)
   and (max-device-width: 568px)
   and (-webkit-min-device-pixel-ratio: 2) {
     .container {
