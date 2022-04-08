@@ -1,6 +1,6 @@
 <template>
   <div class="history">
-    <div><h1>BEHOLD... the works of <span>thy hands</span></h1></div>
+    <div><h1>BEHOLD... the works of thy hand</h1></div>
     <div class="history-img-container" >
       <div v-for="url in historyUrl" :key="url">
         <img :src="url" alt="" />

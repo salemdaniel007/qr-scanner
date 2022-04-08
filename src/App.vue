@@ -11,7 +11,7 @@
         <li>
           <router-link to="/history" class="navtext"
             ><i class="fa fa-history fa-3x" style="color:white;"></i>
-            <span>History</span>
+            <span>Historyyy</span>
           </router-link>
         </li>
       </ul>
