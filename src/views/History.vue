@@ -1,5 +1,5 @@
 <template>
-  <div class="historyyyyy">
+  <div class="history">
     <div><h1>BEHOLD... the works of <span>thy hands</span></h1></div>
     <div class="history-img-container" >
       <div v-for="url in historyUrl" :key="url">
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style>
-.historyyyyy {
+.history {
   display: flex;
   width: 810px;
   height: 75vh;
