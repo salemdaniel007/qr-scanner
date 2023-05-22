@@ -7,7 +7,7 @@
       </div>
       <h5 style="color:#f15c12;" class="tries" v-show="count > 10">
         Err.. boss man, calm down first<span style="font-size: 1.5rem;">💆🏿‍♂️</span>, you don
-        overdo, refresh to try again.
+        overdo, refresh to try again. some very interesting changes for the good of all mankind
       </h5>
       <h5 style="color:#f15c12;" class="tries" v-show="valid">
         Oga your url no correct <span style="font-size: 1.5rem;">🤷🏿‍♂️</span>, check am abeg
