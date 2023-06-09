@@ -41,7 +41,7 @@
         </button>
       </div>
     </div>
-    <div class="remark">Made with ❤️ by Salem</div>
+    <div class="remark">Made with ❤️ by Salem, blah bblah bblahhhhhhhhh bblah!</div>
   </div>
 </template>
 
